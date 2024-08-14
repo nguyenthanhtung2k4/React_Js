@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\CODE\\DNU_JavaScript\\React_Js\\tesst_vissual 2022\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9AD4BE6A-EFF8-4464-9AF9-A460E2D2F69B}|reactproject1\\reactproject1.esproj|d:\\code\\dnu_javascript\\react_js\\tesst_vissual 2022\\reactproject1\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{9AD4BE6A-EFF8-4464-9AF9-A460E2D2F69B}|reactproject1\\reactproject1.esproj|solutionrelative:reactproject1\\src\\app.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "App.jsx",
+              "DocumentMoniker": "D:\\CODE\\DNU_JavaScript\\React_Js\\tesst_vissual 2022\\reactproject1\\src\\App.jsx",
+              "RelativeDocumentMoniker": "reactproject1\\src\\App.jsx",
+              "ToolTip": "D:\\CODE\\DNU_JavaScript\\React_Js\\tesst_vissual 2022\\reactproject1\\src\\App.jsx",
+              "RelativeToolTip": "reactproject1\\src\\App.jsx",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB8AAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2024-08-14T02:33:52.594Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
