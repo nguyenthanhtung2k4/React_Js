@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elenment</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        // Sử dụng React.createElement để tạo phần tử
+        var tung = React.createElement(
+            'h1',
+            {
+                title: 'h1',
+                className: 'h1_class' // Sửa 'class' thành 'className'
+            },
+            'text H1'
+        );
+
+        // Sử dụng JSX trong function
+        function Tung2() {
+            return (
+                <div id='tjamut9nm'>6786</div>
+            );
+        }
+
+        // Tạo root React và render nội dung
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        
+          // Render phần tử React
+          root.render(tung); // Nếu muốn render `tung`
+        
+        // Hoặc render component function
+        root.render(<Tung2 />); // Nếu muốn render `Tung2`
+    </script>
+</body>
+</html>

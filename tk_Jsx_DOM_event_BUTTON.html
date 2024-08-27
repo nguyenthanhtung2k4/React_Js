@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>DOM event</title>
+     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+     <!-- React -->
+     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+          <!-- React - Dom  -->
+     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+     <div id="root"></div>
+     <script type="text/babel">
+          function  App(){
+               return(
+                    
+                    <div id="click">
+                         <button onClick={()=> console.log(Math.random())}>Click</button>
+                         <div id="random">
+                              <p></p>
+                         </div>
+                    </div>
+               )
+               
+          }
+          ReactDOM.render(<App/>,document.getElementById('root')) 
+     </script>
+</body>
+</html>

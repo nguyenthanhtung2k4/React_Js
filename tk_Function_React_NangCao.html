@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Function</title>
+     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+          <!-- React -->
+     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+          <!-- React - Dom  -->
+     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+     <div id="root"></div>
+     <script type="text/babel">
+          /// link : https://www.youtube.com/watch?v=TvE2FuYiuXo&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q&index=17
+          
+               /// CÁCH 1:  DÙNG CHUNG MỘT THAM CHIẾU
+                         function PosItem1 (pos){
+                              return(
+                                   <div clasName='PosItem'>
+                                        <h2 className='posTitle'>{pos.title}</h2>
+                                        <p className='posAge'>{pos.age}</p>
+                                        <p className='posClass'>{pos.class}</p>
+                                   </div>
+                              );
+                         }
+               /// CÁCH 2:  KHÔNG DÙNG CHUNG MỘT THAM CHIẾU  
+                         function PosItem2(
+                              title,
+                              age,
+                              classs,
+                         ){
+                              return(
+                                   <div clasName='PosItem'>
+                                        <h2 className='posTitle'>{title}</h2>
+                                        <p className='posAge'>{age}</p>
+                                        <p className='posClass'>{classs}</p>
+                                   </div>
+                              );
+                         }
+
+          function App(){
+               return(
+                    <div id="App">
+                         <PosItem1 
+                         title=" thanhtung"
+                         age='20'
+                         class='cntt-17 15'
+                         />
+                         <PosItem2
+                         title=" nguyenthanhtung"
+                         age='21'
+                         class='cntt-17 15'
+                         />
+                    </div>
+               );
+          }
+          
+          ReactDOM.render(<App/>, document.getElementById('root'));
+     
+     </script>
+</body>
+</html>

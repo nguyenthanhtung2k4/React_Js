@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>DOM event</title>
+     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+     <!-- React -->
+     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+          <!-- React - Dom  -->
+     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+     <div id="root"></div>
+     <script type="text/babel">
+          var  Check={
+               Radio(){
+                    return <input type="radio"/>
+               },
+               Check(){
+                    return <input type="checkbox"/>
+               }
+          }
+          function  App(){
+               var type="Check" // Thay đổi kiểu input (  checkbox || radio)
+               var Box=Check[type] // React  không cho phép truyền thẳng vào JSX trực tiếp trả về
+               return(
+                    
+                    <div id="check">
+                         <Box/>
+                    </div>
+               )
+               
+          }
+          ReactDOM.render(<App/>,document.getElementById('root')) 
+     </script>
+</body>
+</html>

@@ -1,3 +1,4 @@
+
 /// Sử dụng trong Object
      //  Cach 1
      var ob={ name: 'John',
@@ -17,3 +18,15 @@
      console.log(a)
      console.log(b)
      console.log(end)
+
+/// sử dụng  object  chứa function()
+ var ob={
+     Radio(){
+          return <input type="radio"/>
+     },
+     Check(){
+          return <input type="checkbox"/>
+     }
+ }
+ console.log(ob.Radio)
+//   Nó chỉ hoạt động trên React + web không hoạt động trên IDE
