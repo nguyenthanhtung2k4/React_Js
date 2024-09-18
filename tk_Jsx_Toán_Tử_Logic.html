@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>jsx</title>
+     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+     <!-- React -->
+     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+          <!-- React - Dom  -->
+     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+     <div id="root"></div>
+     <script type="text/babel">
+          function App({title,title2}){ /// chuyền tham chiếu đến trong fuction
+               return(
+                    <div id='logic'>
+                         <p>{title|| title2}</p> 
+                    </div>
+               )         /// ||  giống if else có hoặc không
+                         /// trương hop  1  neu co thi in ra không thì chạy trường hợp 2
+          }
+                         /// trong App chuyền giá trị vào function
+          ReactDOM.render(<App title="thanhtung" title2="" /> , document.getElementById('root'));
+     </script>
+          
+          

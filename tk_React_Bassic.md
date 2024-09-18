@@ -238,3 +238,10 @@ CDN: React
           - DOM events() : Làm việc với nút bấm (button | check box ...) làm việc với Jsx
 ![Vd:Làm việc với DOM_events_Button](./tk_Jsx_DOM_event_BUTTON.html)
 ![VD:Làm việc vớiDOM_events_CheckBox_Radio](./tk_Jsx_DOM_events_CheckBox_Radio.html)
+          
+          
+          - Toán tử logic với React: Có thể sử dụng if else trong React
+
+![Vd:Sử dụng  Logic (if else React)](./tk_Jsx_Toán_Tử_Logic.html)
+
+
