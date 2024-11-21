@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Props Example</title>
+     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+     <div id="root"></div>
+     <script type="text/babel">
+          // Component Content nhận props
+          const Content = (props) => {
+               return (
+                    <div>
+                         <h1>{props.title}</h1>
+                         <p>{props.money}</p>
+                         <p>{props.about}</p>
+                    </div>
+               );
+          };
+
+          // Component App truyền props vào Content
+          const App = () => {
+               return (
+                    <div class='Contents'>
+                         <Content 
+                              title='Python'
+                              money="200" 
+                              about="Python is a programming language"
+                         />
+                         <Content 
+                              title='Python'
+                              money="200" 
+                              about="Python is a programming language"
+                         />
+                         <Content 
+                              title='C++'
+                              money="30" 
+                              about="Python is a programming language"
+                         />
+                         <Content 
+                              title='Java'
+                              money="150" 
+                              about="Python is a programming language"
+                         />
+                    </div>
+               );
+          };
+          //  render
+          ReactDOM.render(<App/>,document.getElementById('root'))
+     </script>
+</body>
+</html>

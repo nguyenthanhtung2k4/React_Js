@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>JSX </title>
+     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+     <div id="root"></div>
+     <!-- Script  JSX -->
+     <script type="text/babel">
+          //  Dùng jsx  với ul 
+          var ul= (
+               <ul>
+                    <li>thanhtung</li>
+                    <li>dinhnam</li>
+                    </ul>
+               );
+               
+          // ReactDOM.render(ul,document.getElementById("root"));
+         
+         
+          //  Dùng jsx  với các elements
+               //////// Cách 1 :  dùng React.Fragment
+          var element = (
+               <React.Fragment>
+                    <h1>thanhtung</h1>
+                    <h1>thanhtung2</h1>
+               </React.Fragment>
+          );
+          // ReactDOM.render(element, document.getElementById("root"));
+          //  Dùng jsx  với các elements
+               //////// Cách 2  dùng div bọc bên ngoài  
+          var element = (
+               <div>
+                    <h1>thanhtung</h1>
+                    <h1>thanhtung2</h1>
+               </div>
+          );
+          // ReactDOM.render(element, document.getElementById("root"));
+      
+      
+      
+      
+          /////////////////////////////////////// Tong reden
+      var container = (
+          <div>
+              {ul} //  đẻ chuyền vào giá trị ta dùng dấu {}
+              {element}
+          </div>
+      ) ;
+      
+      // Hiển thị container ra giao diện
+      ReactDOM.render(container,document.getElementById("root"));
+      ReactDOM.render(container,document.getElementById('root')) ;
+      
+      
+      </script>
+</body>
+</html>
