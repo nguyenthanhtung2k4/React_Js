@@ -117,7 +117,25 @@ Link :
 ## Types :  hiểu một cách đơn giản là tạo ra 1 function và nó cho phép người dùng gọi lại
 ![VD:Sử dụng  Types](./tk_React_Types_Function.html)
 
-## Props : hiểu một cách đơn giản là nó cho phép chiều đối số vào trong hàm ,  áp dụng cả types vào trong Props
+## Props : hiểu một cách đơn giản là nó cho phép chuyền đối số vào trong hàm ,  áp dụng cả types vào trong Props
 ***Xem ví dụ để hiểu thêm***
 ![VD:Sưe dụng dùng tham chiếu ](./tk_React_Props_ThamChieu.html)
+![VD: Sử dụng Props  vào button](./tk_React_Button.html)
+-    ***Lưu ý:*** Trong react thì cần phải chuyển tuân thủ theo quy tắc viết thường và in hoa.
+-    `onClick`:  Phải viết theo nó như vậy
+-    `onDoubleclick`: Phải viết theo đúng quy tắc...
+- `Còn rất nhiều các hàm cần thuân thủ theo cần tra thêm1`
+### Childen props: Nó cũng là chuyền đối số vào mà trong hàm này nó cho phép bạn sử  chuyền nhiều tham số hơn mà  không cần  viết từng  đối số vào.
+![Vd: Ví dụ sử dụng Childen props  trong React](./tk)
+
+## Component : Phải tuân thủ các quy tắc React:  Đặt tên func cần phải viết chữ cái hoa.
+-    **Đơn giản là** Nó bắt bạn phải tuân thủ của react hãy xem ví dụ bên dưới để có  được cái nhìn dõ hơn!
+-    **Kết hợp toán tử logic** :  Trong React cho phép bạn kếtt hợp toán tử trong Component
+     `` || `` :  Toán tử hoặc
+     `` && ``: Toán tử Và
+     `` == ``: Toán tử bằng  bằng
+     ***Ví dụ bên dưới cho bạn biết cách sử dụng toán tử trong Component****
+![Vd:Sử dụng Component trong React](./tk_React_Component.html)
+![Vd:Sử dụng toán tử trong Component](./tk_React_Toan_tu.html)
+
 
