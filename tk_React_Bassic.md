@@ -1,6 +1,6 @@
 # Sử dụng JavaScript nâng cao*
 ## **Function**: Cho biêt cách viết tắt và không viết tắt của function.Ngoài ra nó cho bạn biết thêm về các chường hợp hợp lệ và không hợp lệ.
-![VD:Function_JavaScript](./tk_Function.js)
+[VD:Function_JavaScript](./tk_Function.js)
 
 ## **Module**: Cho  phép bạn kết hợp từ file này đến file khác bằng ( import /  export)
 *Sử dụng React Basic Cơ bản*
@@ -11,10 +11,10 @@
      export: Cho phép xuất ra nhiều biến, hàm, lớp và file khác cần chỉ định tên cụ thể khi sử dụng lại.
      export default: Chỉ cho phép xuất ra một biến, hàm, lớp mặc định và file khác có thể sử dụng lại mà không cần chỉ định tên cụ thể.
 
-![Vd:Sử_dụng_Import_Export](./tk_Module/) ==> Cả ví dụ đó được kết hợp trong Folloder "tk_Module"
+[Vd:Sử_dụng_Import_Export](./tk_Module/) ==> Cả ví dụ đó được kết hợp trong Folloder "tk_Module"
 
 ## **Object**: Cách khai báo đơn giản trong Object xem ví dụ bên dưới:
-![Vd:Sử dụng Object](./tk_Object.js)
+[Vd:Sử dụng Object](./tk_Object.js)
 
 ## **Gộp Các Objcet + Gộp các Arrays lại với nhau**
 -    **Object**:  Ta có thể gộp 2 hoặc nhiều object lại với nhau bằng cách dùng dấu: chấm chấm (...). Điều này được gọi là "phương thức spread( lấy ra)" và cho phép chúng ta sao chép các thuộc tính của một object vào một object khác.
@@ -82,7 +82,7 @@
 -    **Link Dom**: https://github.com/nguyenthanhtung2k4/DNU_JavaScript/raw/refs/heads/main/JavaScript/tk_JacvaScript_BASIC.txt
 -    **Link Video**: https://www.youtube.com/watch?v=Nno-r1Cz_-I&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q&index=8&pp=iAQB
 
-# React :  Reacr yêu cầu đặt tên biến phải có chữ đầu viết hoa.
+# React Basic :  Reacr yêu cầu đặt tên biến phải có chữ đầu viết hoa. 
 Link : 
      <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
      <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -90,7 +90,7 @@ Link :
 ## Phương thức React-CreateElement
 -    **Phương thức React-CreateElement**:  Phương thức này được sử dụng để tạo ra element
 -    **Cú pháp React:**: React.createElement(type, attchibill, interHtnml , n)  
-![VD: So sánh JavaScript và  React](./tk_So_sánh_Js+React-%20CreateElemnet.html)
+[VD: So sánh JavaScript và  React](./tk_So_sánh_Js+React-%20CreateElemnet.html)
 
 
 ## React-DOM 
@@ -112,30 +112,123 @@ Link :
 -    **Tham chiếu đền**: dùng dấu {}
 -    **React.Fragment**: Bao toàn bộ  các thẻ elements bên trong để tránh gây xung đột trong jsx
 
-![Vd: Sử dụng JSX và các trường hơp](./tk_React_JSX.html)
+[Vd: Sử dụng JSX và các trường hơp](./tk_React_JSX.html)
 
 ## Types :  hiểu một cách đơn giản là tạo ra 1 function và nó cho phép người dùng gọi lại
-![VD:Sử dụng  Types](./tk_React_Types_Function.html)
+[VD:Sử dụng  Types](./tk_React_Types_Function.html)
 
 ## Props : hiểu một cách đơn giản là nó cho phép chuyền đối số vào trong hàm ,  áp dụng cả types vào trong Props
 ***Xem ví dụ để hiểu thêm***
-![VD:Sưe dụng dùng tham chiếu ](./tk_React_Props_ThamChieu.html)
-![VD: Sử dụng Props  vào button](./tk_React_Button.html)
+[VD:Sưe dụng dùng tham chiếu ](./tk_React_Props_ThamChieu.html)
+[VD: Sử dụng Props  vào button](./tk_React_Button.html)
 -    ***Lưu ý:*** Trong react thì cần phải chuyển tuân thủ theo quy tắc viết thường và in hoa.
 -    `onClick`:  Phải viết theo nó như vậy
 -    `onDoubleclick`: Phải viết theo đúng quy tắc...
 - `Còn rất nhiều các hàm cần thuân thủ theo cần tra thêm1`
 ### Childen props: Nó cũng là chuyền đối số vào mà trong hàm này nó cho phép bạn sử  chuyền nhiều tham số hơn mà  không cần  viết từng  đối số vào.
-![Vd: Ví dụ sử dụng Childen props  trong React](./tk)
+[Vd: Ví dụ sử dụng Childen props  trong React](./tk)
 
 ## Component : Phải tuân thủ các quy tắc React:  Đặt tên func cần phải viết chữ cái hoa.
 -    **Đơn giản là** Nó bắt bạn phải tuân thủ của react hãy xem ví dụ bên dưới để có  được cái nhìn dõ hơn!
 -    **Kết hợp toán tử logic** :  Trong React cho phép bạn kếtt hợp toán tử trong Component
-     `` || `` :  Toán tử hoặc
+
+     `` || `` :  Toán tử hoặc (  xét  giá trị  null,  undify, 0  fase, "" , NaN)
+
+     ``??``:  Toán tử này xét  ( undify và null ) ==> Mục độ xét nhỏ hơn  || 
+
      `` && ``: Toán tử Và
+
      `` == ``: Toán tử bằng  bằng
      ***Ví dụ bên dưới cho bạn biết cách sử dụng toán tử trong Component****
-![Vd:Sử dụng Component trong React](./tk_React_Component.html)
-![Vd:Sử dụng toán tử trong Component](./tk_React_Toan_tu.html)
+
+[Vd:Sử dụng Component trong React](./tk_React_Component.html)
+[Vd:Sử dụng toán tử trong Component](./tk_React_Toan_tu.html)
+
+==> Phần bên trên là basic React phải gắn link CDN nó mới có thể chạy được. Bên dưới là React nâng cao hơn chính vì vậy chúng sẽ cần cài môi trường!
 
 
+# REACT nâng cao :
+*Để cài được mối trường trước hết phải có Node.js |  Sau đó cài gitbash*
+     ***Cài đặt Node.js***:  Cài đặt Node.js để có thể sử dụng được cậu lệnh để chạy code.
+     ***Cài GitBash***:  Để cài được npx  cài môi trường ảo | npm cài môi trường về máy. or yarn
+*Sau khi cài đầy đủ tiếp đến dùng npx để cài được môi trường react*
+## Câu lệnh Cài môi trường : 
+-    **npx create-react-app {_Tên_dự_án}** : Cài môi trường trong 1 follder 
+-    ***Nếu trong quá trình cài môi trường bị lỗi có thể thêm câu lệnh  này***: 
+-----------------------     ***npm install -g npm@latest***
+-    **npm i**: tự động kéo file react cần có về khi chẳng may xóa 1 trong những file bắt buộc phải có nó.
+-    **npm start** : Chạy môi trường
+-    **npm run build** : Build môi trường
+--------------      **npm install -g serve**: Cài môi trường để chạy sản phẩm được build ra.
+- ------------      **serve -s build**: Chạy môi trường đã được build ra.
+-    **npm run eject** : Xóa môi trường
+-    **npm install {_Tên_thư_viện_}** : Cài thư viện
+-    **npm install {_Tên_thư_viện_} --save** : Cài thư viện
+-    **npm install {_Tên_thư_viện_} --save-dev** : Cài thư viện dev 
+
+[Vd:Hiểu dõ hơn về npm, npx, yarn](https://www.youtube.com/watch?v=7sX_8lKURqo&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q&index=26)
+[Vd:Cấu trúc thư mục hoạt đông trong React](https://www.youtube.com/watch?v=-Ka_3RkQAvk&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q&index=27)
+
+## Hook : Được hiểu đơn giản nó là các hàm được tạo sẵn và chỉ lấy ra và áp dụng vào bài của mình.
+
+### useState: Cập nhập thay đổi giá trị trạng thái
+***Cấu trúc***:
+------------- `const [{Gia_tri_LanDau} , {Set_Gia_tri_callback}] = useState;`
+-    **Dùng khi nào?**: Khi muốn dữ liệu thay đổi thì giao diện tự động được cập nhật (render lại[ theo dữ liệu]).
+-    **Cách dùng**
+```jsx
+          import { useState } from 'react'
+          function Component() {
+          const [state, setState] = useState(initState)
+
+          .......
+          }
+
+```
+***Lưu ý***:
+- Component được re-render sau khi 'setState"
+- Initial state chỉ dùng cho lần đầu 
+- Set state với callback?
+- Initial state với callback?
+- Set state là thay thế state bằng giá
+trị mới
+
+[Vd: Sử dụng Hook useState](./tk_Hook_React_useState.js) Cần build môi trường trước khi chạy code.
+####  ------------------ Làm việc với useState ----------------------
+#### *Two-Way- binding(uerState)*: Áp dụng checkbox CheckBox, radio, Fromt, input .....
+-    **Dùng khi**: Khi bạn cần đồng bộ hóa giá trị của một input form với state trong React và ngược lại.
+-    **Cách dùng**: Giống như useState vì nó được áp dụng useState để làm ra ràng buộc 2 chiều.
+```jsx
+     const courses = [{id: 1,name: 'Html'},
+     {id: 2,name: 'Python'}
+     ];
+
+     function App() {
+     const [checked, setChecked] = useState(2); // checked  BanDau= 2
+     const [result, setResult] = useState();
+
+     const handleSubmit = () => {
+     // Call API
+     const api={
+          id: checked,
+          name: courses.find(course => course.id === checked).name
+     }
+     console.log(api); /// requesrt ve  phia api 
+     ///  setResult: dùng để  in ra màn hình
+     setResult({
+          id: checked,
+          name: courses.find(course => course.id === checked).name
+     });
+     };
+     return(
+          ....................................
+          tham khảo VD check radio  vs checkbox bên dưới !
+     )
+     }
+```
+
+[VD: Radio dung useState](./tk_Hook_React_useState_Radio.js)
+
+[Vd: CheckBox dung useState]()
+
+#### to-do-list(useState) : 
