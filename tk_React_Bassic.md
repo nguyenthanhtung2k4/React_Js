@@ -171,7 +171,7 @@ Link :
 
 ## Hook : Được hiểu đơn giản nó là các hàm được tạo sẵn và chỉ lấy ra và áp dụng vào bài của mình.
 
-### useState: Cập nhập thay đổi giá trị trạng thái
+### 1 useState: Cập nhập thay đổi giá trị trạng thái
 ***Cấu trúc***:
 ------------- `const [{Gia_tri_LanDau} , {Set_Gia_tri_callback}] = useState;`
 -    **Dùng khi nào?**: Khi muốn dữ liệu thay đổi thì giao diện tự động được cập nhật (render lại[ theo dữ liệu]).
@@ -231,4 +231,12 @@ trị mới
 
 [Vd: CheckBox dung useState]()
 
-#### to-do-list(useState) : 
+#### *to-do-list(useState)* : Hiện ra các danh sách sử dụng  to do  list
+[Vd: Sử dụng To-do-list](./tk_Hook_)
+
+
+### 2 Thuật ngữ  Mounted  và  UnMounted nó dùng chỉ cho gắn vào và lấy ra.
+#### *Mounted** : Dùng để gắn vào.
+#### *UnMounted** : Dùng để lấy ra.
+[Vd: Sử dụn g Mount và UnMounted](./tk_Hook_React_useState_Mount_UnMount(Gắn%20và%20bỏ).js)
+### 3 userEffect : 
