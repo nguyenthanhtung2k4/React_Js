@@ -262,3 +262,16 @@ trị mới
 - **Mục đích nó có thể xuất ra được nhiều dữ liệu cùng với 1 trang**
 
 [Vd: Sử dụng  useEffect với tham số API](./tk_Hook_React_useEffect_Call_API_Tham_So.js)
+
+
+#### *3.4 DOM Event (Cuộn trang  web Scroll )* >> Sử dụng với useEffect
+- *Kiến thứ:* :  Về kiếm thức này yêu cầu người dùng phải nắm được kiến thức cơ bản về JavaScript cơ bản
+- *Sử dụng **useEffect** có thể tạo thanh cuộn về trang ban đầu rất mượt mà và trơn tru*
+
+**LƯU Ý:** Sau khi dùng **xong sự kiện event** trong js  cần phải xóa sự kiện đi để giảm tối đa tốc độ trình duyệt **tránh dư thừa dữ liệu**
+
+[Vd: Sử dụng useEffect làm thanh cuộn (Scroll)](./tk_Hook_React_useEffect_DomEvent_Thanh_Cuộn.js)
+
+
+
+Video dang kh 36

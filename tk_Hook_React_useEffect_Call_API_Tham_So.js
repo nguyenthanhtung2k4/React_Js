@@ -15,7 +15,8 @@ function App() {
   return(
     <div class='Tung' style={{padding:30}}>
       <h1>Hello Word</h1>
-      {options.map(op=>(
+      {/*  sưe dụng vòng lặp */}
+      {options.map(op=>( 
         <button 
           type='button'
           value={op}
@@ -23,11 +24,12 @@ function App() {
             color: '#fff',
             background:' #333'
           } :{}}
-
+          //  onclip de thay đổi type
           onClick={e=>setType(op)}
         >{op}</button>
       ))}
           <ul >
+            {/* hiện ra tất cả các map hiện ra */}
             {data.map(d=>(
               <li type={1} key={d.id}>{d.title || d.body}</li>
             ))}
