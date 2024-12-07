@@ -169,7 +169,7 @@ Link :
 [Vd:Hiểu dõ hơn về npm, npx, yarn](https://www.youtube.com/watch?v=7sX_8lKURqo&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q&index=26)
 [Vd:Cấu trúc thư mục hoạt đông trong React](https://www.youtube.com/watch?v=-Ka_3RkQAvk&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q&index=27)
 
-## Hook : Được hiểu đơn giản nó là các hàm được tạo sẵn và chỉ lấy ra và áp dụng vào bài của mình.
+## ****** Hook : Được hiểu đơn giản nó là các hàm được tạo sẵn và chỉ lấy ra và áp dụng vào bài của mình.
 
 ### 1 useState: Cập nhập thay đổi giá trị trạng thái
 ***Cấu trúc***:
@@ -195,7 +195,7 @@ trị mới
 
 [Vd: Sử dụng Hook useState](./tk_Hook_React_useState.js) Cần build môi trường trước khi chạy code.
 ####  ------------------ Làm việc với useState ----------------------
-#### *Two-Way- binding(uerState)*: Áp dụng checkbox CheckBox, radio, Fromt, input .....
+#### *1.1 Two-Way- binding(uerState)*: Áp dụng checkbox CheckBox, radio, Fromt, input .....
 -    **Dùng khi**: Khi bạn cần đồng bộ hóa giá trị của một input form với state trong React và ngược lại.
 -    **Cách dùng**: Giống như useState vì nó được áp dụng useState để làm ra ràng buộc 2 chiều.
 ```jsx
@@ -231,7 +231,7 @@ trị mới
 
 [Vd: CheckBox dung useState]()
 
-#### *to-do-list(useState)* : Hiện ra các danh sách sử dụng  to do  list
+#### *1.2 to-do-list(useState)* : Hiện ra các danh sách sử dụng  to do  list
 [Vd: Sử dụng To-do-list](./tk_Hook_)
 
 
@@ -239,4 +239,26 @@ trị mới
 #### *Mounted** : Dùng để gắn vào.
 #### *UnMounted** : Dùng để lấy ra.
 [Vd: Sử dụn g Mount và UnMounted](./tk_Hook_React_useState_Mount_UnMount(Gắn%20và%20bỏ).js)
-### 3 userEffect : 
+### 3 userEffect : Dùng để xử lý hiệu ứng phụ (side effects) trong component, như lấy dữ liệu, đăng ký sự kiện, hoặc dọn dẹp.
+#### *useEffect*: Có các tính huống sau:
+
+-    **+ useEffect({callBack})** : Gọi callBack ***mỗi khi component*** re-render. 
+-    **+ useEffect({callBack}, [])** : Chỉ gọi lại callback ***1 lần*** sau khi component mounted
+-    **+ useEffect({callBack}, [{giá_trị}])** : CallBack luôn được gọi sau khi ***giá trị*** thay đổi
+
+* >>Lưu ý:CallBack luôn được goị sau khi compoment mounted*
+
+#### *3.1 Update DOM* : Cập nhập lại title của trang web >>Với callback  nhiều lần
+- **Cho phép cập nhập lại dữ liệu ở Title DOM**
+[Vd: Sử dụng useEffect để cập nhập lại TitleDOM](./tk_Hook_React_useEffect_UpdateDOM.js)
+==>  ví dụ này dành cho useEffeact(callback) ==>  Gọi lại nhiều lần sau khi component
+
+#### *3.2 Call API* : Gọi lại API bằng useEffact >> Với callback 1 lần
+- **Dùng callBack 1 lần đ gọi API**
+
+[Vd: Sử dụng useEffect để callBack](./tk_Hook_React_useEffect_Call_API.js)
+
+#### *3.3  Call API nhiều giao diện*  Dùng với callBack >>  Sử dụng callBack  với API và tham số  mảng  của useEffect
+- **Mục đích nó có thể xuất ra được nhiều dữ liệu cùng với 1 trang**
+
+[Vd: Sử dụng  useEffect với tham số API](./tk_Hook_React_useEffect_Call_API_Tham_So.js)
