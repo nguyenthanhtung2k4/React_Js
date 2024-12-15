@@ -171,7 +171,7 @@ Link :
 
 ## ****** Hook : Được hiểu đơn giản nó là các hàm được tạo sẵn và chỉ lấy ra và áp dụng vào bài của mình.
 
-### 1 useState: Cập nhập thay đổi giá trị trạng thái
+### 1 useState(): Cập nhập thay đổi giá trị trạng thái
 ***Cấu trúc***:
 ------------- `const [{Gia_tri_LanDau} , {Set_Gia_tri_callback}] = useState;`
 -    **Dùng khi nào?**: Khi muốn dữ liệu thay đổi thì giao diện tự động được cập nhật (render lại[ theo dữ liệu]).
@@ -239,7 +239,15 @@ trị mới
 #### *Mounted** : Dùng để gắn vào.
 #### *UnMounted** : Dùng để lấy ra.
 [Vd: Sử dụn g Mount và UnMounted](./tk_Hook_React_useState_Mount_UnMount(Gắn%20và%20bỏ).js)
-### 3 userEffect : Dùng để xử lý hiệu ứng phụ (side effects) trong component, như lấy dữ liệu, đăng ký sự kiện, hoặc dọn dẹp.
+### 3 userEffect : Dùng để xử lý hiệu ứng phụ (side effects) trong component, như lấy dữ liệu, đăng ký sự kiện, hoặc dọn dẹp. ( api  ,  ervent  , time.... )
+
+- **=> Khi nào dùng useEffect?**
+  - Các tác vụ không cần đồng bộ với DOM hoặc giao diện, chẳng hạn:
+  - Gọi API.
+  - Lắng nghe sự kiện.
+  - Thiết lập hoặc hủy các bộ đếm thời gian.
+  - Đăng ký hoặc hủy đăng ký sự kiện (ví dụ: addEventListener).
+
 #### *useEffect*: Có các tính huống sau:
 
 -    **+ useEffect({callBack})** : Gọi callBack ***mỗi khi component*** re-render. 
@@ -272,6 +280,86 @@ trị mới
 
 [Vd: Sử dụng useEffect làm thanh cuộn (Scroll)](./tk_Hook_React_useEffect_DomEvent_Thanh_Cuộn.js)
 
+#### 3.5 Time  đếm ngược >> Sử dụng  với  useEffect +  useState
+- **Trong ví dụ  có 2 cách để cho tuime đếm ngược**
+- **Sau khi khi đếm ngược lại  thì phải có hàm clearTiem()**
+
+[Vd:Sử dụng useEffect đếm ngược time](./tk_Hook_React_useEffect_Time_Đếm_Ngược.js)
 
 
-Video dang kh 36
+#### 3.6  Dọn dẹp (Update avata)  >> Sử dụng  với  useEffect
+- *Để tránh dò dị bộ nhớ*:Ta cần xóa bố nhớ hiện tại trước khi  thêm bộ nhớ tiếp theo.
+- **Điều này rất quan trọng để tránh tràn bộ nhớ và xung đột.**
+-*Cú pháp*:
+```js
+useEffect(() => {
+  return () => {
+    // Logic cleanup, ví dụ: hủy sự kiện, dọn bộ nhớ, xóa timer...
+  };
+}, [dependencies]);
+```
+
+Ví dụ bên dưới là cập nhập  avata và clear bộ  nhớ hiện tại để tránh đầy và dò dị bộ nhớ.
+
+[Vd:Sử dụng update avata ( Dọn dẹp trước khi cập nhập)](./tk_Hook_React_useEffect_Update_AVATA__%20(Dọn%20Dẹp).js)
+
+
+#### 3.7 Sử lý thời gian thực >>  uesEffect
+- Vì phần này liên quan đến các file lên có thể tham khảo link ở đây **Link bên dưới**
+
+**Link:** https://www.youtube.com/watch?v=eFrgfL3O_UQ&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q&index=41                                                                                      
+
+==> Nó sẽ phát ervent ra và cập nhập thời thực.
+
+
+### 4 useLayoutEffect: 
+- Dùng khi thực hiện các thao tác đồng bộ hóa: 
+  - DOM Thay đổi DOM ngay sau khi nó được React cập nhật.
+  - Đo kích thước hoặc vị trí của các phần tử DOM (ví dụ: getBoundingClientRect).
+  - Điều chỉnh DOM trước khi nó được vẽ lên màn hình (blocking).
+
+- *Lưu ý:* Không lên lạm dụng quá mức nó khiến làm ảnh hưởng đến hiệu suất.
+
+- **Link tham khảo:** https://www.youtube.com/watch?v=loSqbCbH2xo&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q&index=39
+
+
+[Vd: Sử dung useLayouteffect thay đổi DOM sau khi cập nhập](./tk_)
+
+### 5 useRef( {Đối_số_bất_kì} )
+*Dùng khi:* Khi nào dùng useRef?
+- Truy cập trực tiếp DOM (input, div, canvas, v.v.).
+- **Lưu giá trị mà không cần re-render**.
+- Lưu **trạng thái tạm thời** giữa các lần render.
+- **Ngăn gọi lại các side-effect** không cần thiết.
+ *useRef*:  Trả về object 
+```js 
+{'current' : {Giá_trị_đã_Truyền_vào}}
+```
+
+['Vd:Sử dụng useRef áp dụng điểm dừng của time](./tk_Hook_React_useRef_Điểm_Dừng_Time.js)
+
+***Link Tham khảo** nếu chưa hiểu*: https://www.youtube.com/watch?v=qr1dQqRJRNo&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q&index=40
+
+### 6 memo(): 
+*Dùng khi*: Kiểm tra sự thay đổi của props nếu có sự kiện thay đổi trong funciton component đó thì thay đổi còn không thì nó sẽ giữ nguyên để giúp web hoạt động 1 cách trơn tru.
+
+*Xem **chi tiết** để hiểu dõ hơn về nó:* https://www.youtube.com/watch?v=pPoKG_l3UFQ&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q&index=41
+
+**Tóm lại:** 
+- Tóm lại:
+  -  Trong trường hợp nhiều file  mà chỉ thay đổi 1 function  commpoment nhỏ bên trong 
+  - và các compoment khác không thay đổi có thể dùng memo để giúp giảm vấn đề hiệu năng
+
+
+ 
+Bên dưới đây là sự khác nhau khi không dùng memo  và khi dùng memo:
+- Dùng memo: ['Vd: Sử dụng memo kiểm tra thay đổi của compoment'](./tk_Hook_React_memo_Kiểm_tra_sựThayđổi_trongCompoment.js)
+
+- Không dùng memo: ['Vd: Khi không dùng memo'](./tk_Hook_React_Không_Dùng_memo.js)
+
+### 7 useCallback() 
+
+
+/// đang học đến list  42 về callback và 
+<!--  cahtgpt đang tìm hiểunsuwj khác nhau của call back và  memo.
+ -->
