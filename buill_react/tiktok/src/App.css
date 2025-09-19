@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+div.itemStyle { 
+   color: brown; 
+   font-size: 14px; 
+}
