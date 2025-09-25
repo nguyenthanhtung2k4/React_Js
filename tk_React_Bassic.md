@@ -1,4 +1,4 @@
-# Sử dụng JavaScript nâng cao\*
+# 1. Sử dụng JavaScript nâng cao\*
 
 ## **Function**: Cho biêt cách viết tắt và không viết tắt của function.Ngoài ra nó cho bạn biết thêm về các chường hợp hợp lệ và không hợp lệ.
 
@@ -93,7 +93,7 @@ chao("Nam", "Hoa", "Linh"); // Xin chào, Nam, Hoa, Linh
 - **Link Dom**: https://github.com/nguyenthanhtung2k4/DNU_JavaScript/raw/refs/heads/main/JavaScript/tk_JacvaScript_BASIC.txt
 - **Link Video**: https://www.youtube.com/watch?v=Nno-r1Cz_-I&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q&index=8&pp=iAQB
 
-# React Basic : Reacr yêu cầu đặt tên biến phải có chữ đầu viết hoa.
+# 2.React Basic : Reacr yêu cầu đặt tên biến phải có chữ đầu viết hoa.
 
 Link :
 <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
@@ -175,7 +175,7 @@ root.render(element);
 
 ==> Phần bên trên là basic React phải gắn link CDN nó mới có thể chạy được. Bên dưới là React nâng cao hơn chính vì vậy chúng sẽ cần cài môi trường!
 
-# 1.Cấu trúc React:
+## Cấu trúc React:
 
 ```bash
 my-app/
@@ -769,3 +769,241 @@ npm install @mui/icons-material
 | **Divider**     | Đường kẻ ngang/dọc | `orientation`, `flexItem` | Phân cách nội dung             |
 | **Paper**       | Nền trắng có bóng  | `elevation` (0–24)        | Card đơn giản                  |
 | **CssBaseline** | Reset CSS mặc định | –                         | Đặt ở App.js để đồng bộ UI     |
+
+
+# 3.Redux là gì?
+[Link tham khảo: ]('https://www.youtube.com/watch?v=g_K1w8e0lLo') Video nói về Redux Core   -  Redux Toolkit
+* **Redux** là một **state management library** (thư viện quản lý trạng thái) dành cho ứng dụng JavaScript, đặc biệt hay dùng với **React**.
+* Nó giúp bạn **quản lý state tập trung** thay vì truyền props lòng vòng qua nhiều component (**props drilling**).
+
+---
+
+## 📘 Các khái niệm chính trong Redux
+
+1. **Store**
+
+   * Nơi lưu trữ toàn bộ **state** của ứng dụng.
+   * Mỗi app chỉ có **1 store duy nhất**.
+
+2. **Action**
+
+   * Là một **object** mô tả “chuyện gì đang xảy ra”.
+   * Ví dụ: `{ type: 'ADD_TODO', payload: 'Học Redux' }`.
+
+3. **Reducer**
+
+   * Là một **function** nhận vào state hiện tại và action, trả về state mới.
+   * Công thức:
+
+     ```js
+     (state, action) => newState
+     ```
+
+4. **Dispatch**
+
+   * Hàm dùng để gửi action đến reducer.
+   * Ví dụ: `dispatch({ type: 'ADD_TODO', payload: 'Học Redux' })`.
+
+5. **Selector**
+
+   * Hàm để lấy state từ store.
+   * Trong React: `useSelector(state => state.todos)`.
+
+---
+
+## 🛠 Cách hoạt động của Redux (Data Flow)
+
+1. **UI** (Người dùng click nút) → gọi `dispatch(action)`.
+2. **Action** được gửi đến **Reducer**.
+3. **Reducer** xử lý, tạo ra **state mới**.
+4. **Store** cập nhật state.
+5. **UI** render lại theo state mới.
+
+!['Cau truc Redux'](./img/redux.jpg)
+
+👉 Đây gọi là **One-way Data Flow** (dòng dữ liệu một chiều).
+
+---
+
+## 📦 Ví dụ đơn giản: Counter
+
+## 1. Cài đặt Redux
+
+```bash
+npm  install  redux  react-redux
+```
+
+---
+## 2. Action
+```js 
+// reducers/countReducer.js
+// counterActions.js
+
+export const INCREMENT = 'INCREMENT';
+export const DECREMENT = 'DECREMENT';
+
+export const increment = () => ({
+  type: INCREMENT
+});
+
+export const decrement = () => ({
+  type: DECREMENT
+});
+```
+
+## 2.Reducer
+
+```js
+// reducers/countReducer.js
+
+import { INCREMENT, DECREMENT } from '../actions/counterActions';
+
+const initialState = {
+  count: 0
+};
+
+const counterReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case INCREMENT:
+      return {
+        ...state,
+        count: state.count + 1
+      };
+    case DECREMENT:
+      return {
+        ...state,
+        count: state.count - 1
+      };
+    default:
+      return state;
+  }
+};
+
+export default counterReducer;
+```
+
+---
+
+## 3. Tạo Store
+
+```js
+// store.js
+// store.js
+
+import { createStore } from 'redux';
+import counterReducer from './reducers/counterReducer';
+
+const store = createStore(counterReducer);
+
+export default store;
+```
+
+---
+
+## 4. Bọc App với Provider
+
+```jsx
+// index.js
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { Provider } from "react-redux";
+import { store } from "./store";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+```
+
+---
+
+## 5. Dùng Redux trong Component
+
+```jsx
+// App.js
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement, reset } from "./counterSlice";
+
+function App() {
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
+
+  return (
+    <div>
+      <h1>Counter: {count}</h1>
+      <button onClick={() => dispatch(increment())}>+</button>
+      <button onClick={() => dispatch(decrement())}>-</button>
+      <button onClick={() => dispatch(reset())}>Reset</button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+---
+
+# ⚖️ Khi nào nên dùng Redux?
+
+✅ **Nên dùng khi**:
+
+* App có **state phức tạp**, nhiều component cần dùng chung dữ liệu.
+* Có nhiều thao tác **update state từ nhiều nơi khác nhau**.
+* Bạn cần **debug dễ dàng** (Redux có DevTools cực mạnh).
+
+❌ **Không nên dùng khi**:
+
+* App nhỏ, chỉ vài component → dùng `useState`, `useContext` là đủ.
+* Muốn code gọn nhẹ, tránh boilerplate.
+
+---
+
+# ⭐ Tóm lại
+
+* Redux = **quản lý state tập trung**.
+* Thành phần chính: **Store, Action, Reducer, Dispatch, Selector**.
+* Hiện nay thường dùng **Redux Toolkit** vì nó đơn giản hơn Redux truyền thống.
+
+---
+
+👉 Bạn có muốn mình viết thêm một **README.md hướng dẫn Redux từ cơ bản đến nâng cao** giống như phần mình đã viết cho `useContext` không?
+
+
+# 4. Redux toolkit 
+-  Với ['Phần 3 ở phía trên'](#3redux-là-gì) là nói cấu trúc hoạt động (  cấu trúc nguyên  thủy  của redux )  Bây  giờ tôi  muốn nói  về phần `Redux Toolkit` là  cấu trúc được  năng  cấp  lên không cần viết  chay  về action.... 
+
+- Cấu trúc  Folder Redux Toolkit: 
+```bash
+src/
+├── app/
+│   ├── hooks.js         // Custom hooks như `useAppDispatch` và `useAppSelector`
+│   └── store.js         // Cấu hình store chính của ứng dụng
+├── components/
+│   └── Header.js        // Các component dùng chung
+├── features/
+│   ├── counter/         // Thư mục cho tính năng "bộ đếm"
+│   │   ├── Counter.js     // Component UI hiển thị bộ đếm
+│   │   └── counterSlice.js// Slice chứa reducer, actions và state
+│   ├── posts/           // Thư mục cho tính năng "bài viết"
+│   │   ├── PostList.js    // Component hiển thị danh sách bài viết
+│   │   ├── postsSlice.js  // Slice cho tính năng bài viết
+│   │   └── PostForm.js    // Component để tạo bài viết mới
+│   └── ...              // Các tính năng khác của ứng dụng
+├── pages/
+│   ├── HomePage.js      // Các trang lớn, sử dụng các component từ `features/`
+│   └── AboutPage.js
+├── App.js               // Component chính quản lý layout và định tuyến
+└── index.js             // Điểm khởi đầu của ứng dụng
+```
+
+>  Khi  bạn dùng Redux ToolKit  được sử dụng  rộng rãi và đễ dàng quản lý hơn  so  với  redux core  và càng dễ dàng hơn so với không dùng redux.
+
+- Cài môi trường:
+```bash
+npm install @reduxjs/toolkit react-redux
+```
+> Code tham khảo: Trong Foloder  ->  ./buill_react/my-toolkit/
+
