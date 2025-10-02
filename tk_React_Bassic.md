@@ -219,6 +219,16 @@ _Sau khi cài đầy đủ tiếp đến dùng npx để cài được môi trư
 - **npm install {_Tên_thư_viện_} --save** : Cài thư viện
 - **npm install {_Tên_thư_viện_} --save-dev** : Cài thư viện dev
 
+- Triển khai cục bộ
+```bash
+npm install -g server
+
+# cd /go/to/app/root/folder 
+
+serve -s build
+# Theo mặc định, serve phục vụ ứng dụng bằng cổng 5000. Ứng dụng có thể được xem tại @ http://localhost:5000 .
+
+```
 [Vd:Hiểu dõ hơn về npm, npx, yarn](https://www.youtube.com/watch?v=7sX_8lKURqo&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q&index=26)
 [Vd:Cấu trúc thư mục hoạt đông trong React](https://www.youtube.com/watch?v=-Ka_3RkQAvk&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q&index=27)
 
@@ -413,7 +423,7 @@ _Dùng khi:_ Khi nào dùng useRef?
 
 **\*Link Tham khảo** nếu chưa hiểu\*: https://www.youtube.com/watch?v=qr1dQqRJRNo&list=PL_-VfJajZj0UXjlKfBwFX73usByw3Ph9Q&index=40
 
-### 3.9 memo():
+### 3.9 memo(): GHI nhớ một  componese
 
 _Dùng khi_: Kiểm tra sự thay đổi của props nếu có sự kiện thay đổi trong funciton component đó thì thay đổi còn không thì nó sẽ giữ nguyên để giúp web hoạt động 1 cách trơn tru.
 
@@ -431,7 +441,7 @@ Bên dưới đây là sự khác nhau khi không dùng memo và khi dùng memo:
 
 - Không dùng memo: ['Vd: Khi không dùng memo'](./tk_Hook_React_Không_Dùng_memo.js)
 
-### 3.10 useCallback()
+### 3.10 useCallback()  GHI nhớ một  Function ( logic )
 
 #### Cách dùng:
 
@@ -466,7 +476,7 @@ Bên dưới đây là sự khác nhau khi không dùng memo và khi dùng memo:
 
   --> Hầu như khi memo thì thường sẽ dùng useCallback.
 
-### 3.11 useMemo() :
+### 3.11 useMemo() : Ghi nhớ Giá trị value, là kết quả trả về của một hàm.
 
 #### 3.11.1 Cách dùng: Tránh những logic lập lại không cần thiết.
 
@@ -478,7 +488,7 @@ Bên dưới đây là sự khác nhau khi không dùng memo và khi dùng memo:
 
 ==> Cách dùng giống như các hàm Hook khác trong react ( useEffect,useCallback.. )
 
-[Vd:Sử dụng useMemo](./)
+[Vd:Sử dụng useMemo]( ./tk_Hook_React_useMemo.js)
 
 #### 3.11.2 Sự khác nhau của useMemo và memo:
 
@@ -525,7 +535,18 @@ const [state, dispatch] = useReducer(reducer, initialState);
 
 - useReducer → phức tạp hơn nhưng mạnh khi quản lý nhiều action/state.
 
-### 3.13 useContext()
+
+
+### Tóm lại  trên  Memo &  UseCallback & UseMemo 
+
+Đây là bảng tóm tắt so sánh ba công cụ tối ưu hóa hiệu suất trong React (`React.memo`, `useCallback`, và `useMemo`) theo định dạng Markdown:
+
+| Công cụ | Trách nhiệm Chính | Đối tượng Áp dụng |
+| :--- | :--- | :--- |
+| **`React.memo`** | Chặn re-render của component con nếu props không thay đổi. | **Component** (JSX/UI) |
+| **`useCallback`** | Ổn định **tham chiếu của Function** (Hàm). | **Props là Hàm** |
+| **`useMemo`** | Ổn định **tham chiếu của Value** (Giá trị, Object, Array) hoặc kết quả tính toán phức tạp. | **Props là Dữ liệu** hoặc **Tính toán nặng** |
+### 3.13 useContext() QUản lý state  toàn cục
 
 - Khi nào dùng nó: Hiểu đơn giản thì nó được dùng khi mà muốn truyền trực tiếp `từ a-> c` thay `vì truyền a -> b -> c` (b là biến trung gian giữa a , c )
 
@@ -629,7 +650,7 @@ export  default  Paragragh ;
 
 
 ```
-
+### 3.14 useImperativeHandle()
 
 
 
@@ -1006,4 +1027,84 @@ src/
 npm install @reduxjs/toolkit react-redux
 ```
 > Code tham khảo: Trong Foloder  ->  ./buill_react/my-toolkit/
+
+# 5.Testting
+- Cài đặt  thư viện: 
+```bash
+cd /go/to/react-test-app 
+npm install --save @testing-library/react @testing-library/jest-dom
+
+npm install --save-dev @testing-library/react-hooks redux-mock-store
+
+```
+
+- Các câu lệnh liên quan : 
+Các câu lệnh cơ bản của kiểm thử (testing) thường được sử dụng với **Jest** và **React Testing Library**. Dưới đây là các câu lệnh phổ biến nhất mà bạn sẽ gặp khi viết test.
+
+---
+
+### **Các lệnh cơ bản của Jest**
+
+* `describe(name, fn)`: Dùng để nhóm các bài test có liên quan với nhau. Tên (`name`) thường là tên của component hoặc chức năng bạn đang kiểm thử.
+* `test(name, fn)`: Dùng để định nghĩa một bài test cụ thể. Tên (`name`) mô tả chức năng mà bạn đang kiểm tra. Bạn cũng có thể dùng `it` thay thế cho `test`.
+* `expect(value)`: Bắt đầu một câu khẳng định. Nó nhận một giá trị (`value`) để kiểm tra.
+* `toBe()`: So sánh giá trị với một giá trị khác.
+* `toEqual()`: So sánh giá trị của các đối tượng hoặc mảng.
+* `beforeEach(fn)`: Chạy một hàm trước mỗi bài test trong một khối `describe`. Dùng để thiết lập môi trường test.
+* `afterEach(fn)`: Chạy một hàm sau mỗi bài test trong một khối `describe`. Dùng để dọn dẹp.
+* `jest.fn()`: Tạo một hàm giả (mock function).
+* `toHaveBeenCalled()`: Khẳng định rằng một hàm giả đã được gọi.
+
+---
+
+### **Các lệnh của React Testing Library**
+
+Các lệnh này được dùng để tìm kiếm các phần tử DOM trên màn hình ảo.
+
+* `render(component)`: Kết xuất (render) một component **React** vào môi trường test.
+* `screen`: Một đối tượng cung cấp các phương thức truy vấn để tìm kiếm các phần tử đã được render.
+* `fireEvent.click(element)`: Mô phỏng một sự kiện click chuột trên một phần tử.
+* `getByRole(role, options)`: Tìm kiếm một phần tử dựa trên **vai trò** của nó (ví dụ: `button`, `heading`, `link`). Đây là phương pháp truy vấn được khuyến khích nhất vì nó mô phỏng cách người dùng sử dụng trang web (đặc biệt là người dùng có hỗ trợ tiếp cận). 
+* `getByText(text)`: Tìm kiếm phần tử chứa một văn bản cụ thể.
+* `getByLabelText(text)`: Tìm kiếm phần tử có một nhãn (label) cụ thể.
+
+---
+
+### **Các lệnh của `@testing-library/jest-dom`**
+
+Thư viện này mở rộng **Jest** với các **matchers** (bộ so khớp) hữu ích cho DOM.
+
+* `toBeInTheDocument()`: Khẳng định rằng một phần tử có tồn tại trong tài liệu.
+* `toBeVisible()`: Khẳng định rằng một phần tử có hiển thị trên màn hình.
+* `toHaveTextContent(text)`: Khẳng định rằng một phần tử có chứa một đoạn văn bản.
+* `toBeEnabled()`: Khẳng định rằng một phần tử (như nút) không bị vô hiệu hóa.
+* `toBeDisabled()`: Khẳng định rằng một phần tử bị vô hiệu hóa.
+
+
+## Chạy testing: 
+```bash
+npm test
+
+# nó sẽ hiện như sau: 
+PASS  src/features/button/Button.test.js
+PASS  src/features/counter/Counter.test.js
+
+Test Suites: 2 passed, 2 total
+Tests:       3 passed, 3 total
+Snapshots:   0 total
+Time:        2.617 s
+Ran all test suites related to changed files.
+
+Watch Usage
+ › Press a to run all tests.
+ › Press f to run only failed tests.
+ › Press q to quit watch mode.
+ › Press p to filter by a filename regex pattern.
+ › Press t to filter by a test name regex pattern.
+ › Press Enter to trigger a test run.
+
+#  Nếu như  pass hết tức là bạn đã thành công trong  testring đó rồi !
+# Nếu Faill bạn nên xem lại nó nhé  và sửa lại cho đúng.
+```
+
 
