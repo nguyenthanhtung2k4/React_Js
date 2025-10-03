@@ -651,10 +651,21 @@ export  default  Paragragh ;
 
 ```
 ### 3.14 useImperativeHandle()
+- ``useImperativeHandle`` là một React Hook cho phép bạn tùy chỉnh giá trị instance được hiển thị cho ref khi sử dụng với forwardRef.
+-  Nó cho phép truyền giá trị từ thằng component  (con)  đến component (cha) vẫn có thể sử dụng được nó.
+
+* `Lưu ý:` Không lên tận dụng  nó  quá nhiều đề khuyến nghị ưu tiên luồng dữ liệu một chiều ( cha ->  con)
+
+[Vd:  Sử dụng useImperativeHandle](./tk_Hook_React_useImperativeHandle.js)
 
 
+### 3.15  Tổng quát về tất cả các Hook
+-  Ở đây tổng hợp các Hook trong 1  foloder để  build lên web.
+- Chỉ cần thay `npm i` rồi chạy  `npm  start`
 
+<br>
 
+[==> Foloder nó ở đây](./buill_react/my-hook/)
 
 ## 4.FrameWork UI
 - Link tham khảo:
